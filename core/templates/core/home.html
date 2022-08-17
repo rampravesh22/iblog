@@ -1,0 +1,47 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Welcome To iBlog{% endblock title %}
+{% block content %}
+
+<div class="container-custom mt20">
+    <div class="owl-carousel">
+        {% for cat in category %}
+        <div class="card item" style="margin-left:10px;">
+            <div class="img-conatiner">
+                <img src="https://source.unsplash.com/1350x760/?tech">
+            </div>
+            <div class="card-content">
+                <div class="card-title">{{ cat.title }}</div>
+                <p class="truncate">{{ cat.description }}</p>
+            </div>
+            <div class="container center-align mt20">
+                <a href="{% url 'category' cat.cat_id %}" class="btn bg-primary">View</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<div class="container">
+    {% for post in posts %}
+    <div class="row">
+        <div class="col s12 m8">
+            <div class="row">
+
+                <div class="col s12 m8">
+                    {{post.content| truncatewords:60|safe}}
+                    <div class="mt20">
+                        <a href="{% url 'blog' post.post_id %}" class="btn bg-primary">Read More...</a>
+                    </div>
+                </div>
+
+                <div class="col s12 m4">
+                    <img src="{{ post.image.url }}" alt="" class="responsive-img mt20">
+                </div>
+
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}

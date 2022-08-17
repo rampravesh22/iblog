@@ -1,0 +1,24 @@
+.bg-primary{
+    background:#477091 !important ;
+}
+
+.mt20{
+    margin-top: 20px;
+}
+
+.container-custom{
+    width: 95% !important;
+    margin: auto;
+}
+
+.item{
+    margin-left:10px !important;
+    min-height: 400px;
+}
+.image-container-custom{
+    width: 90% !important;
+}
+html {
+    scroll-behavior: smooth !important;
+  }
+

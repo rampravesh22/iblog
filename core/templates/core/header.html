@@ -1,0 +1,27 @@
+<!-- Dropdown Structure -->
+<ul id="dropdown1" class="dropdown-content mt20">
+    {% for c in category %}
+    <li>
+        <a href="{% url 'category' c.cat_id %}">{{ c.title }} </a>
+    </li>
+    {% endfor %}
+</ul>
+<nav class="bg-primary">
+    <div class="container">
+        <div class="nav-wrapper">
+            <a href="/" class="brand-logo">iBlog</a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="/about">About</a></li>
+                <li><a href="/admin">Admin</a></li>
+                <!-- Dropdown Trigger -->
+                {% if cates %}
+                <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">{{cates.title}}<i
+                    class="material-icons right">arrow_drop_down</i></a></li>
+                {% else %}
+                <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Categories<i
+                    class="material-icons right">arrow_drop_down</i></a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
